@@ -13,6 +13,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+    <link rel="icon" href="../assets/images/image.png" type="png" />
 
     <style>
       /* --- 1. CSS VARIABLES (Palette & Typography) --- */
@@ -256,6 +257,7 @@
         margin-bottom: 2em;
         border-bottom: 2px solid #ddd;
       }
+      /* ADDED cursor pointer for interactive feel */
       .ministry-tabs a {
         display: inline-block;
         padding: 0.75em 1.5em;
@@ -263,11 +265,19 @@
         color: var(--color-text-dark);
         border-bottom: 2px solid transparent;
         font-weight: 700;
+        cursor: pointer; /* Added for interactivity */
       }
       .ministry-tabs a:hover,
       .ministry-tabs a.active {
         color: var(--color-secondary);
         border-bottom: 2px solid var(--color-secondary);
+      }
+      /* CSS for tab functionality */
+      .ministry-content-wrapper .ministry-tab-content {
+        display: none; /* Hide all content by default */
+      }
+      .ministry-content-wrapper .ministry-tab-content.active {
+        display: grid; /* Only show active content */
       }
 
       /* Ministry Content Grid */
@@ -338,24 +348,24 @@
             <li><a href="../connect/connect.html">Connect</a></li>
           </ul>
         </nav>
-        <a href="../give/give.html" class="cta-button nav-cta primary-cta">Give</a>
+        <a href="../give/give.html" class="cta-button nav-cta primary-cta"
+          >Give</a
+        >
         <button class="menu-toggle" aria-label="Toggle navigation">
           <i class="fas fa-bars"></i>
         </button>
       </div>
     </header>
-
     <main>
       <section class="page-hero section-padding text-center">
         <div class="container">
-          <h1>Find Your Place to Belong and Serve</h1>
+          <h1>Find a Place to Belong and Serve</h1>
           <p class="subtitle">
             We believe growth happens in circles, not just rows. Get connected
             today!
           </p>
         </div>
       </section>
-
       <section class="connection-pathways section-padding">
         <div class="container">
           <h2 class="text-center">Start Connecting Here</h2>
@@ -401,53 +411,151 @@
           <h2 class="text-center">Ministries for All Ages</h2>
 
           <div class="ministry-tabs">
-            <a href="#" class="active">Kids & Youth</a>
-            <a href="#">Adult Ministries</a>
-            <a href="#">Outreach</a>
+            <a href="#" class="tab-link active" data-tab="kids-youth"
+              >Kids & Youth</a
+            >
+            <a href="#" class="tab-link" data-tab="adult-ministries"
+              >Adult Ministries</a
+            >
+            <a href="#" class="tab-link" data-tab="outreach">Outreach</a>
           </div>
 
-          <div class="ministry-content-grid">
-            <div class="ministry-item">
-              <i class="fas fa-church"></i>
-              <div>
-                <h4>Gathering Kids (Infant - 5th Grade)</h4>
-                <p>
-                  A fun, safe, and engaging environment where kids learn about
-                  Jesus on their level every Sunday.
-                </p>
+          <div class="ministry-content-wrapper">
+            <div id="kids-youth" class="ministry-tab-content active">
+              <div class="ministry-content-grid">
+                <div class="ministry-item">
+                  <i class="fas fa-church"></i>
+                  <div>
+                    <h4>Gathering Kids (Infant - 5th Grade)</h4>
+                    <p>
+                      A fun, safe, and engaging environment where kids learn
+                      about Jesus on their level every Sunday.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="ministry-item">
+                  <i class="fas fa-graduation-cap"></i>
+                  <div>
+                    <h4>The Forge Youth (6th - 12th Grade)</h4>
+                    <p>
+                      Weekly gatherings focused on relevant teaching, worship,
+                      and discipleship for middle and high school students.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="ministry-item">
+                  <i class="fas fa-baby"></i>
+                  <div>
+                    <h4>Nursery & Preschool</h4>
+                    <p>
+                      Dedicated spaces and background-checked volunteers ensure
+                      your youngest children are cared for during services.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="ministry-item">
+                  <i class="fas fa-basketball-ball"></i>
+                  <div>
+                    <h4>Youth Summer Camp</h4>
+                    <p>
+                      Annual week-long camp focused on spiritual development,
+                      team-building, and lasting friendships.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="ministry-item">
-              <i class="fas fa-graduation-cap"></i>
-              <div>
-                <h4>The Forge Youth (6th - 12th Grade)</h4>
-                <p>
-                  Weekly gatherings focused on relevant teaching, worship, and
-                  discipleship for middle and high school students.
-                </p>
+            <div id="adult-ministries" class="ministry-tab-content">
+              <div class="ministry-content-grid">
+                <div class="ministry-item">
+                  <i class="fas fa-bible"></i>
+                  <div>
+                    <h4>Sunday Morning Classes</h4>
+                    <p>
+                      In-depth, rotational Bible studies focusing on specific
+                      books or theological topics for adult discipleship.
+                    </p>
+                  </div>
+                </div>
+                <div class="ministry-item">
+                  <i class="fas fa-ring"></i>
+                  <div>
+                    <h4>Marriage & Family Workshops</h4>
+                    <p>
+                      Resources and seminars designed to strengthen marriages
+                      and provide biblical tools for parenting.
+                    </p>
+                  </div>
+                </div>
+                <div class="ministry-item">
+                  <i class="fas fa-male"></i>
+                  <div>
+                    <h4>Men's Ministry (Iron Sharpens Iron)</h4>
+                    <p>
+                      Monthly breakfast meetings and retreats focused on
+                      fellowship and accountability among men.
+                    </p>
+                  </div>
+                </div>
+                <div class="ministry-item">
+                  <i class="fas fa-female"></i>
+                  <div>
+                    <h4>Women's Ministry (Daughters of the King)</h4>
+                    <p>
+                      Small group studies, service projects, and annual
+                      conferences for women of all ages.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="ministry-item">
-              <i class="fas fa-baby"></i>
-              <div>
-                <h4>Nursery & Preschool</h4>
-                <p>
-                  Dedicated spaces and background-checked volunteers ensure your
-                  youngest children are cared for during services.
-                </p>
-              </div>
-            </div>
-
-            <div class="ministry-item">
-              <i class="fas fa-basketball-ball"></i>
-              <div>
-                <h4>Youth Summer Camp</h4>
-                <p>
-                  Annual week-long camp focused on spiritual development,
-                  team-building, and lasting friendships.
-                </p>
+            <div id="outreach" class="ministry-tab-content">
+              <div class="ministry-content-grid">
+                <div class="ministry-item">
+                  <i class="fas fa-globe-americas"></i>
+                  <div>
+                    <h4>Global Missions Support</h4>
+                    <p>
+                      Partnering with long-term missionaries in [Country 1] and
+                      [Country 2] through prayer and financial giving.
+                    </p>
+                  </div>
+                </div>
+                <div class="ministry-item">
+                  <i class="fas fa-hand-holding-heart"></i>
+                  <div>
+                    <h4>Local Food Pantry Drive</h4>
+                    <p>
+                      Weekly efforts to collect and distribute food to families
+                      in need within our local community.
+                    </p>
+                  </div>
+                </div>
+                <div class="ministry-item">
+                  <i class="fas fa-city"></i>
+                  <div>
+                    <h4>Community Clean-up Days</h4>
+                    <p>
+                      Organized events to serve our city through park clean-ups
+                      and minor home repairs for the elderly.
+                    </p>
+                  </div>
+                </div>
+                <div class="ministry-item">
+                  <i class="fas fa-school"></i>
+                  <div>
+                    <h4>Adopt-a-School Program</h4>
+                    <p>
+                      Providing volunteers, supplies, and mentorship to local
+                      [Local School Name] elementary school.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -496,5 +604,43 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      // JavaScript to handle the tab switching functionality
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // 1. Get all the tab links and content sections
+        const tabLinks = document.querySelectorAll(".tab-link");
+        const tabContents = document.querySelectorAll(".ministry-tab-content");
+
+        // 2. Add an event listener to each tab link
+        tabLinks.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault(); // Prevent default link behavior (page jump)
+
+            // Get the ID of the content to display from the data-tab attribute
+            const targetId = this.getAttribute("data-tab");
+
+            // --- Step A: Update the active tab link style ---
+            // Remove 'active' class from all links
+            tabLinks.forEach((l) => l.classList.remove("active"));
+            // Add 'active' class to the clicked link
+            this.classList.add("active");
+
+            // --- Step B: Switch the content display ---
+            // Hide all content sections
+            tabContents.forEach((content) =>
+              content.classList.remove("active")
+            );
+
+            // Show the target content section
+            const targetContent = document.getElementById(targetId);
+            if (targetContent) {
+              targetContent.classList.add("active");
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
