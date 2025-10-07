@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sermon Archive | The Gathering Place</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Merriweather:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <style>
+      /* --- 1. CSS VARIABLES (Palette & Typography) --- */
+      :root {
+        --color-primary: #1e3a24; /* Deep Forest Green */
+        --color-secondary: #f59e0b; /* Warm Gold/Orange */
+        --color-text-dark: #333;
+        --color-text-light: #fff;
+        --color-background-light: #f9f9f9;
+        --color-background-dark: #1f2937;
+
+        --font-heading: "Montserrat", sans-serif;
+        --font-body: "Merriweather", serif;
+      }
+
+      /* --- 2. GLOBAL RESET & BASE STYLES --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-body);
+        color: var(--color-text-dark);
+        line-height: 1.6;
+        background-color: var(--color-text-light);
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-heading);
+        color: var(--color-primary);
+        margin-bottom: 0.5em;
+        font-weight: 700;
+      }
+
+      h1 {
+        font-size: 2.5em;
+      }
+      h2 {
+        font-size: 2em;
+      }
+      h3 {
+        font-size: 1.5em;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--color-primary);
+        transition: color 0.3s;
+      }
+
+      /* Helper Classes */
+      .bg-light {
+        background-color: var(--color-background-light);
+      }
+      .bg-dark {
+        background-color: var(--color-background-dark);
+      }
+      .text-white {
+        color: var(--color-text-light) !important;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .section-padding {
+        padding: 4em 0;
+      }
+      .flex-row {
+        display: flex;
+        align-items: center;
+        gap: 2em;
+      }
+
+      /* --- 3. CTA BUTTON STYLES --- */
+      .cta-button {
+        display: inline-block;
+        padding: 0.75em 1.5em;
+        border-radius: 5px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .primary-cta {
+        background-color: var(--color-secondary);
+        color: var(--color-text-dark);
+        border: 2px solid var(--color-secondary);
+      }
+      .primary-cta:hover {
+        background-color: transparent;
+        color: var(--color-secondary);
+      }
+      .secondary-cta {
+        background-color: transparent;
+        color: var(--color-primary);
+        border: 2px solid var(--color-primary);
+      }
+      .secondary-cta:hover {
+        background-color: var(--color-primary);
+        color: var(--color-text-light);
+      }
+      .minimal-cta {
+        background: none;
+        border: none;
+        color: var(--color-secondary);
+        padding: 0;
+        margin-top: 1em;
+        font-style: italic;
+      }
+
+      /* --- 4. GLOBAL HEADER & NAVIGATION STYLES --- */
+      .main-header {
+        background-color: var(--color-primary);
+        padding: 1em 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        font-family: var(--font-heading);
+        font-size: 1.5em;
+        color: var(--color-text-light);
+        font-weight: 700;
+      }
+      .main-nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.5em;
+      }
+      .main-nav a {
+        color: var(--color-text-light);
+        font-weight: 400;
+      }
+      .nav-cta {
+        margin-left: 1.5em;
+      }
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--color-text-light);
+        font-size: 1.5em;
+        cursor: pointer;
+      }
+
+      /* --- 5. FOOTER STYLES --- */
+      .main-footer {
+        background-color: var(--color-background-dark);
+        color: var(--color-text-light);
+        padding: 3em 0;
+        font-size: 0.9em;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2em;
+      }
+      .footer-col h4 {
+        color: var(--color-secondary);
+        margin-bottom: 1em;
+      }
+      .footer-col a {
+        color: var(--color-text-light);
+        display: block;
+        margin-bottom: 0.5em;
+      }
+      .footer-col a:hover {
+        color: var(--color-secondary);
+      }
+      .social-icons a {
+        display: inline-block;
+        font-size: 1.5em;
+        margin-right: 0.75em;
+        margin-top: 1em;
+      }
+
+      /* --- 6. SERMONS PAGE SPECIFIC STYLES --- */
+
+      /* Page Hero/Title Section */
+      .page-hero {
+        background-color: var(--color-primary);
+        color: var(--color-text-light);
+        padding: 6em 0 4em 0;
+      }
+      .page-hero h1 {
+        color: var(--color-text-light);
+        font-size: 3em;
+      }
+      .page-hero .subtitle {
+        font-size: 1.2em;
+        opacity: 0.8;
+      }
+
+      /* Latest Sermon Feature */
+      .sermon-details {
+        align-items: flex-start;
+        gap: 3em;
+        margin-top: 2em;
+      }
+
+      .sermon-video-player {
+        flex: 3; /* Takes up more space for the video */
+      }
+
+      .sermon-metadata {
+        flex: 2; /* Takes up less space for the details */
+      }
+
+      .video-embed {
+        width: 100%;
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        height: 0;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      .video-embed iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .sermon-metadata h3 {
+        margin-top: 0;
+        color: var(--color-primary);
+      }
+
+      .sermon-metadata p {
+        margin-bottom: 1em;
+      }
+
+      .sermon-metadata .speaker,
+      .sermon-metadata .date {
+        font-weight: 700;
+        color: var(--color-text-dark);
+      }
+
+      .sermon-actions {
+        display: flex;
+        gap: 1em;
+        margin-top: 2em;
+      }
+
+      /* Archive Controls & Grid */
+      .archive-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1.5em;
+        margin: 2em 0 3em 0;
+      }
+
+      .search-input,
+      #series-filter {
+        padding: 0.75em 1em;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1em;
+      }
+
+      .search-input {
+        flex-grow: 1; /* Allows search bar to take up most space */
+      }
+
+      /* Sermon Archive Grid */
+      .sermon-archive-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5em;
+      }
+
+      .sermon-card {
+        display: block;
+        background-color: var(--color-text-light);
+        padding: 1.5em;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        border-left: 5px solid var(--color-secondary);
+        transition: transform 0.3s, box-shadow 0.3s;
+        color: var(--color-text-dark);
+      }
+
+      .sermon-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+      }
+
+      .sermon-card h4 {
+        color: var(--color-primary);
+        margin: 0.5em 0;
+        font-size: 1.25em;
+      }
+
+      .series-tag {
+        display: inline-block;
+        background-color: var(--color-primary);
+        color: var(--color-text-light);
+        font-size: 0.75em;
+        padding: 0.25em 0.5em;
+        border-radius: 3px;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .card-meta {
+        font-size: 0.9em;
+        color: #666;
+        font-style: italic;
+        margin-bottom: 0.5em;
+      }
+
+      /* Pagination Controls */
+      .pagination-controls {
+        margin-top: 3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+      }
+      .pagination-controls .minimal-cta.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      .page-number {
+        font-weight: 700;
+      }
+
+      /* --- 7. Responsive Adjustments --- */
+      @media (max-width: 900px) {
+        .main-nav,
+        .nav-cta {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
+
+        .sermon-details {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .sermon-metadata {
+          flex: 1;
+          width: 100%;
+          margin-top: 2em;
+        }
+        .sermon-actions {
+          justify-content: center;
+        }
+        .archive-controls {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .search-input,
+        #series-filter {
+          width: 100%;
+          flex-grow: initial;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="container header-content">
+        <a href="index.html" class="logo">The Gathering Place</a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="../about/about.html">About Us</a></li>
+            <li><a href="../sermon/sermon.html">Sermons</a></li>
+            <li><a href="../allevents/event.html">Events</a></li>
+            <li><a href="../connect/connect.html">Connect</a></li>
+          </ul>
+        </nav>
+        <a href="give.html" class="cta-button nav-cta primary-cta">Give</a>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+    <main>
+      <section class="page-hero section-padding text-center">
+        <div class="container">
+          <h1>Listen & Watch: Sermons</h1>
+          <p class="subtitle">
+            Catch up on the latest messages or explore our archive of past
+            series.
+          </p>
+        </div>
+      </section>
+
+      <section class="latest-sermon-feature section-padding">
+        <div class="container">
+          <h2 class="text-center">Latest Message: The Power of Community</h2>
+
+          <div class="sermon-details flex-row">
+            <div class="sermon-video-player">
+              <div class="video-embed">
+                <iframe
+                  width="100%"
+                  height="450"
+                  src="https://www.youtube.com/embed/VIDEO_ID_HERE"
+                  title="Featured Sermon"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+            <div class="sermon-metadata">
+              <h3>Part 3: Serving the City</h3>
+              <p class="speaker">
+                <i class="fas fa-microphone"></i> **Speaker:** Pastor John Doe
+              </p>
+              <p class="date">
+                <i class="fas fa-calendar"></i> **Date:** October 1, 2025
+              </p>
+              <p>
+                This week, Pastor John challenges us to move beyond our walls
+                and actively serve the city, demonstrating God's love through
+                practical action.
+              </p>
+
+              <div class="sermon-actions">
+                <a href="#" class="cta-button primary-cta"
+                  ><i class="fas fa-headphones"></i> Listen to Audio Only</a
+                >
+                <a href="#" class="cta-button secondary-cta"
+                  ><i class="fas fa-file-alt"></i> View Notes/Transcript</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sermon-archive-section bg-light section-padding">
+        <div class="container">
+          <h2 class="text-center">Sermon Archive</h2>
+
+          <div class="archive-controls">
+            <input
+              type="text"
+              placeholder="Search by Topic, Speaker, or Date..."
+              class="search-input"
+            />
+            <select name="series" id="series-filter">
+              <option value="">Filter by Series</option>
+              <option value="community">The Power of Community (2025)</option>
+              <option value="genesis">Journey through Genesis (2024)</option>
+              <option value="holyspirit">
+                The Holy Spirit Unpacked (2024)
+              </option>
+            </select>
+          </div>
+
+          <div class="sermon-archive-grid">
+            <a href="sermon-detail-2.html" class="sermon-card">
+              <p class="series-tag">The Power of Community</p>
+              <h4>Part 2: Deepening Connection</h4>
+              <p class="card-meta">Pastor Jane Smith | September 24, 2025</p>
+              <p>
+                The second message in the series focuses on the importance of
+                small groups and intentional fellowship.
+              </p>
+            </a>
+
+            <a href="sermon-detail-3.html" class="sermon-card">
+              <p class="series-tag">The Power of Community</p>
+              <h4>Part 1: The Gathering</h4>
+              <p class="card-meta">Pastor John Doe | September 17, 2025</p>
+              <p>
+                The series kickoff: why gathering together is essential for our
+                spiritual health and growth.
+              </p>
+            </a>
+
+            <a href="sermon-detail-4.html" class="sermon-card">
+              <p class="series-tag">Journey through Genesis</p>
+              <h4>Week 12: The Covenant</h4>
+              <p class="card-meta">Pastor John Doe | August 20, 2024</p>
+              <p>
+                A look at the foundational promises God makes to His people and
+                what they mean today.
+              </p>
+            </a>
+
+            <a href="sermon-detail-5.html" class="sermon-card">
+              <p class="series-tag">Journey through Genesis</p>
+              <h4>Week 11: Abraham's Faith</h4>
+              <p class="card-meta">Pastor Jane Smith | August 13, 2024</p>
+              <p>
+                Exploring the life of Abraham and what true, reckless faith
+                looks like in practice.
+              </p>
+            </a>
+          </div>
+
+          <div class="pagination-controls text-center">
+            <a href="#" class="cta-button minimal-cta disabled">Previous</a>
+            <span class="page-number">Page 1 of 5</span>
+            <a href="#" class="cta-button minimal-cta">Next</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="container footer-grid">
+        <div class="footer-col logo-col">
+          <p class="logo">The Gathering Place</p>
+          <p>&copy; 2024. All Rights Reserved.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../visit/visit.html">Plan Your Visit</a></li>
+            <li><a href="../our-beliefs/our-belief.html">Our Beliefs</a></li>
+            <li><a href="../sermon/sermon.html">Sermon Archives</a></li>
+            <li><a href="../connect/connect.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <p>123 Church Road, Anytown, CA 90210</p>
+          <p>Phone: (555) 123-4567</p>
+          <p>Email: info@gatheringplace.org</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

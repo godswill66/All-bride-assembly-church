@@ -1,0 +1,355 @@
+/* --- 1. CSS VARIABLES (Our Color Palette & Typography) --- */
+:root {
+    /* Colors (Based on the design concept: warm, inviting, earthy) */
+    --color-primary: #1e3a24; /* Deep Forest Green (Primary) */
+    --color-secondary: #f59e0b; /* Warm Gold/Orange (Accent/CTA) */
+    --color-text-dark: #333; /* Near Black */
+    --color-text-light: #fff; /* White */
+    --color-background-light: #f9f9f9; /* Light Gray for alternating sections */
+    --color-background-dark: #1f2937; /* Dark Gray for footer/giving */
+
+    /* Typography */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Merriweather', serif;
+}
+
+/* --- 2. GLOBAL RESET & BASE STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    background-color: var(--color-text-light);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+h1 { font-size: 2.5em; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: color 0.3s;
+}
+
+/* Helper Classes */
+.bg-light { background-color: var(--color-background-light); }
+.bg-dark { background-color: var(--color-background-dark); }
+.text-white { color: var(--color-text-light) !important; }
+.text-center { text-align: center; }
+.section-padding { padding: 4em 0; }
+.section-padding-small { padding: 2em 0; }
+.flex-row { display: flex; align-items: center; gap: 2em; }
+.flex-justify-between { display: flex; align-items: center; justify-content: space-between; }
+.icon-large { font-size: 3rem; color: var(--color-secondary); margin-bottom: 0.5em; }
+
+
+/* --- 3. CTA BUTTON STYLES --- */
+.cta-button {
+    display: inline-block;
+    padding: 0.75em 1.5em;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.primary-cta {
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark);
+    border: 2px solid var(--color-secondary);
+}
+.primary-cta:hover {
+    background-color: transparent;
+    color: var(--color-secondary);
+}
+
+.secondary-cta {
+    background-color: transparent;
+    color: var(--color-text-light); /* Used in the Hero section */
+    border: 2px solid var(--color-text-light);
+}
+.secondary-cta:hover {
+    background-color: var(--color-text-light);
+    color: var(--color-primary);
+}
+
+.minimal-cta {
+    background: none;
+    border: none;
+    color: var(--color-secondary);
+    padding: 0;
+    margin-top: 1em;
+    font-style: italic;
+}
+
+
+/* --- 4. HEADER & NAVIGATION STYLES --- */
+.main-header {
+    background-color: var(--color-primary);
+    padding: 1em 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5em;
+    color: var(--color-text-light);
+    font-weight: 700;
+}
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5em;
+}
+.main-nav a {
+    color: var(--color-text-light);
+    font-weight: 400;
+}
+.nav-cta {
+    margin-left: 1.5em;
+}
+.menu-toggle { 
+    display: none; /* Hide on desktop */ 
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+
+/* --- 5. HERO SECTION STYLES --- */
+.hero-section {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Placeholder background image - REPLACE THIS! */
+    background: url('images/hero-placeholder.jpg') center/cover no-repeat;
+    text-align: center;
+}
+.hero-image-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+}
+.hero-content {
+    position: relative; /* Bring content above the overlay */
+    z-index: 10;
+}
+.hero-content h1 {
+    font-size: 3.5em;
+    color: var(--color-text-light);
+    margin-bottom: 0.25em;
+}
+.service-times {
+    color: var(--color-text-light);
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 1.5em;
+}
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+
+/* --- 6. I'M NEW HERE SECTION STYLES --- */
+.new-here-section .flex-row {
+    align-items: flex-start;
+}
+.new-here-section .text-content {
+    flex: 1;
+    max-width: 50%;
+}
+.new-here-section .image-content {
+    flex: 1;
+    max-width: 50%;
+}
+.new-here-section img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+
+/* --- 7. SERMONS SECTION STYLES --- */
+.sermon-section h3 {
+    color: var(--color-text-dark);
+    font-weight: 400;
+    margin-top: -0.5em;
+}
+.video-embed {
+    margin: 2em auto;
+    max-width: 800px;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.video-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* --- 8. CONNECT / NEXT STEPS SECTION STYLES (Using CSS Grid) --- */
+.next-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2em;
+    margin-top: 2em;
+}
+.step-card {
+    text-align: center;
+    padding: 2em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+
+/* --- 9. GIVING SECTION STYLES --- */
+.give-section .container {
+    padding: 1.5em 0;
+}
+.give-section h2 {
+    color: var(--color-text-light);
+    margin: 0;
+}
+.give-section p {
+    color: var(--color-text-light);
+    margin: 0 2em;
+}
+.give-section .primary-cta {
+    /* Special styling for the CTA on a dark background */
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    border: 2px solid var(--color-secondary);
+}
+.give-section .primary-cta:hover {
+    background-color: var(--color-text-light);
+}
+
+
+/* --- 10. FOOTER STYLES (Using CSS Grid) --- */
+.main-footer {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-light);
+    padding: 3em 0;
+    font-size: 0.9em;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2em;
+}
+.footer-col h4 {
+    color: var(--color-secondary);
+    margin-bottom: 1em;
+}
+.footer-col a {
+    color: var(--color-text-light);
+    display: block;
+    margin-bottom: 0.5em;
+}
+.footer-col a:hover {
+    color: var(--color-secondary);
+}
+.social-icons a {
+    display: inline-block;
+    font-size: 1.5em;
+    margin-right: 0.75em;
+    margin-top: 1em;
+}
+
+
+/* --- 11. RESPONSIVENESS (Media Queries for Mobile/Tablet) --- */
+@media (max-width: 900px) {
+    
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    /* Flip the layout on the 'I'm New Here' section for smaller screens */
+    .new-here-section .flex-row {
+        flex-direction: column;
+        text-align: center;
+    }
+    .new-here-section .text-content,
+    .new-here-section .image-content {
+        max-width: 100%;
+    }
+    .new-here-section .image-content {
+        margin-top: 2em;
+    }
+    
+    /* Stack Giving Section content */
+    .give-section .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1em;
+    }
+    .give-section p {
+        margin: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Hide the full navigation menu on small screens */
+    .main-nav {
+        display: none;
+    }
+    /* Show the hamburger menu icon */
+    .menu-toggle {
+        display: block;
+    }
+    .nav-cta {
+        display: none; /* Optional: Hide the Give button in the header on smallest screens */
+    }
+    
+    .hero-content h1 {
+        font-size: 2em;
+    }
+    .hero-actions {
+        flex-direction: column;
+    }
+}
