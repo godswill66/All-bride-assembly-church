@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="copyright" content="© 2025 The All Bride Assembly" />
+
+    <meta
+      property="og:title"
+      content="Submit a Prayer Request | All Bride Assembly Church Abuja"
+    />
+    <meta
+      property="og:description"
+      content="Share your burdens and joys with our ministry team. We are honored to pray for you and support you in faith."
+    />
+    <meta
+      property="og:image"
+      content="https://yourwebsite.com/assets/images/og-image.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://yourwebsite.com/connect/prayer.html"
+    />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Submit a Prayer Request | All Bride Assembly Church Abuja"
+    />
+    <meta
+      name="twitter:description"
+      content="Share your burdens and joys with our ministry team. We are honored to pray for you and support you in faith."
+    />
+    <meta
+      name="twitter:image"
+      content="https://yourwebsite.com/assets/images/og-image.jpg"
+    />
+
+    <title>Prayer Request | All Bride Assembly Church Abuja</title>
+
+    <link rel="icon" href="../assets/images/image.png" type="image/png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Merriweather:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <style>
+      /* --- 1. CSS VARIABLES (Our Color Palette & Typography) --- */
+      :root {
+        --color-primary: #1e3a24;
+        --color-secondary: #f59e0b;
+        --color-text-dark: #333;
+        --color-text-light: #fff;
+        --color-background-light: #f9f9f9;
+        --color-background-dark: #1f2937;
+        --font-heading: "Montserrat", sans-serif;
+        --font-body: "Merriweather", serif;
+      }
+
+      /* --- 2. GLOBAL RESET & BASE STYLES --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: var(--font-body);
+        color: var(--color-text-dark);
+        line-height: 1.6;
+        background-color: var(--color-text-light);
+      }
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-heading);
+        color: var(--color-primary);
+        margin-bottom: 0.5em;
+        font-weight: 700;
+      }
+      h1 {
+        font-size: 2.5em;
+      }
+      h2 {
+        font-size: 2em;
+      }
+      h3 {
+        font-size: 1.5em;
+      }
+      a {
+        text-decoration: none;
+        color: var(--color-primary);
+        transition: color 0.3s;
+      }
+      a:hover {
+        color: var(--color-secondary);
+      }
+
+      /* Helper Classes */
+      .bg-light {
+        background-color: var(--color-background-light);
+      }
+      .bg-dark {
+        background-color: var(--color-background-dark);
+      }
+      .text-white {
+        color: var(--color-text-light) !important;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .section-padding {
+        padding: 4em 0;
+      }
+      .section-padding-small {
+        padding: 2em 0;
+      }
+      .flex-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 3em;
+      }
+      .flex-justify-between {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .icon-large {
+        font-size: 3rem;
+        color: var(--color-secondary);
+        margin-bottom: 0.5em;
+      }
+
+      /* --- 3. CTA BUTTON STYLES --- */
+      .cta-button {
+        display: inline-block;
+        padding: 0.75em 1.5em;
+        border-radius: 5px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .primary-cta {
+        background-color: var(--color-secondary);
+        color: var(--color-text-dark);
+        border: 2px solid var(--color-secondary);
+      }
+      .primary-cta:hover {
+        background-color: transparent;
+        color: var(--color-secondary);
+      }
+      .secondary-cta {
+        background-color: transparent;
+        color: var(--color-text-light);
+        border: 2px solid var(--color-text-light);
+      }
+      .secondary-cta:hover {
+        background-color: var(--color-text-light);
+        color: var(--color-primary);
+      }
+      .minimal-cta {
+        background: none;
+        border: none;
+        color: var(--color-secondary);
+        padding: 0;
+        margin-top: 1em;
+        font-style: italic;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+      .minimal-cta:hover {
+        color: var(--color-primary);
+      }
+
+      /* --- 4. HEADER & NAVIGATION STYLES --- */
+      .main-header {
+        background-color: var(--color-primary);
+        padding: 1em 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        font-family: var(--font-heading);
+        font-size: 1.5em;
+        color: var(--color-text-light);
+        font-weight: 700;
+      }
+      .logo:hover {
+        color: var(--color-secondary);
+      }
+      .main-nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.5em;
+      }
+      .main-nav a {
+        color: var(--color-text-light);
+        font-weight: 400;
+      }
+      .main-nav a:hover {
+        color: var(--color-secondary);
+      }
+      .nav-cta {
+        margin-left: 1.5em;
+      }
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--color-text-light);
+        font-size: 1.5em;
+        cursor: pointer;
+      }
+
+      /* Highlight active link for Connect (even if this is a sub-page) */
+      .main-nav .active-link {
+        color: var(--color-secondary) !important;
+        border-bottom: 2px solid var(--color-secondary);
+        padding-bottom: 3px;
+      }
+
+      /* --- PRAYER PAGE SPECIFIC STYLES --- */
+      .prayer-intro {
+        text-align: center;
+        background-color: var(--color-primary);
+        color: var(--color-text-light);
+        padding: 4em 0;
+      }
+      .prayer-intro h1 {
+        color: var(--color-secondary) !important;
+        font-size: 3em;
+      }
+      .prayer-intro p {
+        font-size: 1.1em;
+        max-width: 800px;
+        margin: 1em auto 0;
+      }
+
+      /* Form Layout */
+      .prayer-form-section {
+        max-width: 800px;
+        margin: 4em auto;
+        padding: 3em;
+        border-radius: 8px;
+        background-color: var(--color-background-light);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+      .form-group {
+        margin-bottom: 1.5em;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5em;
+        font-weight: 700;
+        color: var(--color-primary);
+      }
+      .form-group input[type="text"],
+      .form-group input[type="email"],
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.75em;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: var(--font-body);
+        font-size: 1em;
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 180px;
+      }
+      .prayer-form-section .primary-cta {
+        width: 100%;
+        border: none;
+        cursor: pointer;
+        margin-top: 1em;
+      }
+
+      .anonymity-note {
+        text-align: center;
+        color: var(--color-primary);
+        font-style: italic;
+        margin-top: 1em;
+        font-size: 0.9em;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 600px) {
+        .prayer-intro h1 {
+          font-size: 2.5em;
+        }
+        .prayer-form-section {
+          padding: 1.5em;
+          margin: 2em auto;
+        }
+
+        /* Mobile menu styles from index.html applied here */
+        .menu-toggle {
+          display: block;
+        }
+        .main-nav {
+          display: none;
+        }
+        .main-header.nav-open .main-nav {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 3.8em;
+          left: 0;
+          width: 100%;
+          background-color: var(--color-primary);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        .main-header.nav-open .main-nav ul {
+          flex-direction: column;
+          text-align: center;
+          padding: 1em 0;
+        }
+        .main-header.nav-open .main-nav li {
+          margin: 0.5em 0;
+        }
+        .main-header.nav-open .nav-cta {
+          display: block;
+          margin: 1em auto;
+        }
+        .nav-cta {
+          display: none;
+        }
+      }
+
+      /* --- FOOTER STYLES (Copied from index.html) --- */
+      .main-footer {
+        background-color: var(--color-background-dark);
+        color: var(--color-text-light);
+        padding: 3em 0;
+        font-size: 0.9em;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2em;
+        margin-top: 2em;
+      }
+      .footer-col h4 {
+        color: var(--color-secondary);
+        margin-bottom: 1em;
+      }
+      .footer-col a {
+        color: var(--color-text-light);
+        display: block;
+        margin-bottom: 0.5em;
+      }
+      .footer-col a:hover {
+        color: var(--color-secondary);
+      }
+      .social-icons a {
+        display: inline-block;
+        font-size: 1.5em;
+        margin-right: 0.75em;
+        margin-top: 1em;
+        color: var(--color-text-light);
+      }
+      .social-icons a:hover {
+        color: var(--color-secondary);
+      }
+      @media (max-width: 900px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .footer-col {
+          margin-bottom: 1em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="container header-content">
+        <a href="../index.html" class="logo">All Bride Assembly Church</a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="../about/about.html">About Us</a></li>
+            <li><a href="../sermon/sermon.html">Sermons</a></li>
+            <li><a href="../allevents/event.html">Events</a></li>
+            <li><a href="./connect.html" class="active-link">Connect</a></li>
+          </ul>
+        </nav>
+        <a href="../give/give.html" class="cta-button nav-cta primary-cta"
+          >Give</a
+        >
+        <button class="menu-toggle" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="prayer-intro">
+        <div class="container">
+          <h1>We are Here to Pray for You</h1>
+          <p>
+            The prayer team at All Bride Assembly Church is dedicated to
+            standing in faith with you. Share your request below, knowing it
+            will be handled with **confidentiality and care**.
+          </p>
+        </div>
+      </section>
+
+      <section class="section-padding">
+        <div class="container">
+          <div class="prayer-form-section">
+            <h2
+              class="text-center"
+              style="margin-top: 0; color: var(--color-secondary)"
+            >
+              Share Your Need
+            </h2>
+            <p
+              class="text-center"
+              style="margin-bottom: 2em; color: var(--color-primary)"
+            >
+              Please provide as much detail as you are comfortable sharing so we
+              can pray specifically for your situation.
+            </p>
+
+            <form action="#" method="POST">
+              <div class="form-group">
+                <label for="name">Your Name (Optional, for follow-up)</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Anonymous or Your Name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="email"
+                  >Email Address (Optional, if you would like a response)</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="example@email.com"
+                />
+              </div>
+              <div class="form-group">
+                <label for="request_type">Request Type *</label>
+                <select id="request_type" name="request_type" required>
+                  <option value="" disabled selected>
+                    Choose the nature of your request
+                  </option>
+                  <option value="healing">Healing / Health</option>
+                  <option value="financial">Financial / Provision</option>
+                  <option value="family">Family / Relationship</option>
+                  <option value="salvation">
+                    Salvation / Spiritual Growth
+                  </option>
+                  <option value="other">General / Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message"
+                  >Your Prayer Request (Be specific!) *</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  placeholder="Lord, I ask for strength and guidance as I face..."
+                ></textarea>
+              </div>
+
+              <button type="submit" class="cta-button primary-cta">
+                Submit Prayer Request <i class="fas fa-paper-plane"></i>
+              </button>
+              <p class="anonymity-note">
+                <i class="fas fa-lock"></i> All requests are kept strictly
+                confidential.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-padding-small text-center">
+        <div class="container">
+          <h2>Need to Speak with Someone?</h2>
+          <p>
+            If you need urgent support or counseling, please contact us directly
+            by phone.
+          </p>
+          <a
+            href="tel:5551234567"
+            class="cta-button secondary-cta"
+            style="
+              background-color: var(--color-primary);
+              border-color: var(--color-primary);
+              margin-top: 1em;
+            "
+          >
+            Call Our Ministry Line Now
+          </a>
+        </div>
+      </section>
+
+      <section class="give-section bg-dark text-white section-padding-small">
+        <div class="container flex-justify-between">
+          <h2>Support Our Mission</h2>
+          <p>
+            Generosity fuels everything we do—from our services to our community
+            outreach.
+          </p>
+          <a href="../give/give.html" class="cta-button primary-cta"
+            >Give Online Securely</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <p class="logo">All Bride Assembly Church</p>
+          <p>© 2025 All Bride Assembly Church. All Rights Reserved.</p>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../visit/visit.html">Plan Your Visit</a></li>
+            <li><a href="../our-beliefs/our-belief.html">Our Beliefs</a></li>
+            <li><a href="../sermon/sermon.html">Sermon Archives</a></li>
+            <li><a href="./connect.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <p>123 Church Road, Anytown, CA 90210</p>
+          <p>Phone: (555) 123-4567</p>
+          <p>Email: info@gatheringplace.org</p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const header = document.querySelector(".main-header");
+
+        // Toggles the 'nav-open' class on the header element to show/hide the mobile menu
+        menuToggle.addEventListener("click", () => {
+          header.classList.toggle("nav-open");
+        });
+        // Optional: Close the mobile menu when a link is clicked
+        const navLinks = document.querySelectorAll(".main-nav a");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            if (
+              header.classList.contains("nav-open") &&
+              window.innerWidth <= 600
+            ) {
+              header.classList.remove("nav-open");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
