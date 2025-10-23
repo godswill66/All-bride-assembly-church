@@ -7,11 +7,11 @@
 
     <meta
       property="og:title"
-      content="Submit a Prayer Request | All Bride Assembly Church Abuja"
+      content="Contact Us | All Bride Assembly Church Abuja"
     />
     <meta
       property="og:description"
-      content="Share your burdens and joys with our ministry team. We are honored to pray for you and support you in faith."
+      content="Get in touch with the All Bride Assembly team. Find our location, service times, phone number, and send us a message."
     />
     <meta
       property="og:image"
@@ -19,27 +19,30 @@
     />
     <meta
       property="og:url"
-      content="https://yourwebsite.com/connect/prayer.html"
+      content="https://yourwebsite.com/connect/connect.html"
     />
     <meta property="og:type" content="website" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Submit a Prayer Request | All Bride Assembly Church Abuja"
+      content="Contact Us | All Bride Assembly Church Abuja"
     />
     <meta
       name="twitter:description"
-      content="Share your burdens and joys with our ministry team. We are honored to pray for you and support you in faith."
+      content="Get in touch with the All Bride Assembly team. Find our location, service times, phone number, and send us a message."
     />
     <meta
       name="twitter:image"
       content="https://yourwebsite.com/assets/images/og-image.jpg"
     />
+    <title>Contact Us | All Bride Assembly Church Abuja</title>
+    <link
+      rel="icon"
+      href="/assets/images/All_Bride_Assembly_Church-removebg-preview.png"
+      type="png"
+    />
 
-    <title>Prayer Request | All Bride Assembly Church Abuja</title>
-
-    <link rel="icon" href="../assets/images/image.png" type="image/png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Merriweather:wght@400;700&display=swap"
       rel="stylesheet"
@@ -129,7 +132,7 @@
         display: flex;
         align-items: flex-start;
         gap: 3em;
-      }
+      } /* Adjusted align-items */
       .flex-justify-between {
         display: flex;
         align-items: center;
@@ -141,7 +144,7 @@
         margin-bottom: 0.5em;
       }
 
-      /* --- 3. CTA BUTTON STYLES --- */
+      /* --- 3. CTA BUTTON STYLES (Copied from index.html) --- */
       .cta-button {
         display: inline-block;
         padding: 0.75em 1.5em;
@@ -183,7 +186,7 @@
         color: var(--color-primary);
       }
 
-      /* --- 4. HEADER & NAVIGATION STYLES --- */
+      /* --- 4. HEADER & NAVIGATION STYLES (Copied from index.html) --- */
       .main-header {
         background-color: var(--color-primary);
         padding: 1em 0;
@@ -229,38 +232,46 @@
         cursor: pointer;
       }
 
-      /* Highlight active link for Connect (even if this is a sub-page) */
+      /* Highlight active link for this page */
       .main-nav .active-link {
         color: var(--color-secondary) !important;
         border-bottom: 2px solid var(--color-secondary);
         padding-bottom: 3px;
       }
 
-      /* --- PRAYER PAGE SPECIFIC STYLES --- */
-      .prayer-intro {
+      /* --- CONTACT PAGE SPECIFIC STYLES --- */
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2em;
+        margin-top: 2em;
         text-align: center;
-        background-color: var(--color-primary);
-        color: var(--color-text-light);
-        padding: 4em 0;
       }
-      .prayer-intro h1 {
-        color: var(--color-secondary) !important;
-        font-size: 3em;
+      .contact-card {
+        padding: 2em;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: var(--color-text-light);
       }
-      .prayer-intro p {
-        font-size: 1.1em;
-        max-width: 800px;
-        margin: 1em auto 0;
+      .contact-card i {
+        font-size: 2.5em;
+        color: var(--color-primary);
+        margin-bottom: 0.5em;
+      }
+      .contact-card h3 {
+        color: var(--color-secondary);
       }
 
-      /* Form Layout */
-      .prayer-form-section {
-        max-width: 800px;
-        margin: 4em auto;
-        padding: 3em;
+      /* Form Styles */
+      .contact-form {
+        flex: 2; /* Takes up more space */
+        padding: 2em;
         border-radius: 8px;
         background-color: var(--color-background-light);
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+      .contact-info {
+        flex: 1; /* Takes up less space */
       }
       .form-group {
         margin-bottom: 1.5em;
@@ -284,33 +295,44 @@
       }
       .form-group textarea {
         resize: vertical;
-        min-height: 180px;
+        min-height: 150px;
       }
-      .prayer-form-section .primary-cta {
+      .contact-form .primary-cta {
         width: 100%;
         border: none;
         cursor: pointer;
-        margin-top: 1em;
       }
-
-      .anonymity-note {
-        text-align: center;
-        color: var(--color-primary);
-        font-style: italic;
-        margin-top: 1em;
-        font-size: 0.9em;
+      .map-embed {
+        margin-top: 3em;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      .map-embed iframe {
+        width: 100%;
+        height: 400px;
+        border: 0;
       }
 
       /* Responsive Adjustments */
-      @media (max-width: 600px) {
-        .prayer-intro h1 {
-          font-size: 2.5em;
+      @media (max-width: 900px) {
+        .flex-row {
+          flex-direction: column;
         }
-        .prayer-form-section {
-          padding: 1.5em;
-          margin: 2em auto;
+        .contact-form,
+        .contact-info {
+          flex: 1;
+          width: 100%;
         }
+        .contact-form {
+          order: 2; /* Puts the form below the info on mobile */
+        }
+        .contact-info {
+          order: 1;
+        }
+      }
 
+      @media (max-width: 600px) {
         /* Mobile menu styles from index.html applied here */
         .menu-toggle {
           display: block;
@@ -397,15 +419,13 @@
         <a href="../index.html" class="logo">All Bride Assembly Church</a>
         <nav class="main-nav">
           <ul>
-            <li><a href="../about/about.html">About Us</a></li>
-            <li><a href="../sermon/sermon.html">Sermons</a></li>
-            <li><a href="../allevents/event.html">Events</a></li>
-            <li><a href="./connect.html" class="active-link">Connect</a></li>
+            <li><a href="../about/">About Us</a></li>
+            <li><a href="../sermon/">Sermons</a></li>
+            <li><a href="../allevents/">Events</a></li>
+            <li><a href="../connect/" class="active-link">Connect</a></li>
           </ul>
         </nav>
-        <a href="../give/give.html" class="cta-button nav-cta primary-cta"
-          >Give</a
-        >
+        <a href="../give/" class="cta-button nav-cta primary-cta">Give</a>
         <button class="menu-toggle" aria-label="Toggle navigation">
           <i class="fas fa-bars"></i>
         </button>
@@ -413,117 +433,163 @@
     </header>
 
     <main>
-      <section class="prayer-intro">
+      <section class="section-padding bg-light text-center">
         <div class="container">
-          <h1>We are Here to Pray for You</h1>
-          <p>
-            The prayer team at All Bride Assembly Church is dedicated to
-            standing in faith with you. Share your request below, knowing it
-            will be handled with confidentiality and care.
+          <h1 style="color: var(--color-secondary)">
+            Contact Our Ministry Team
+          </h1>
+          <p style="font-size: 1.1em; color: var(--color-text-dark)">
+            Whether you have a question, need prayer, or want to explore serving
+            opportunities, we'd love to hear from you.
           </p>
         </div>
       </section>
 
       <section class="section-padding">
         <div class="container">
-          <div class="prayer-form-section">
-            <h2
-              class="text-center"
-              style="margin-top: 0; color: var(--color-secondary)"
-            >
-              Share Your Need
-            </h2>
-            <p
-              class="text-center"
-              style="margin-bottom: 2em; color: var(--color-primary)"
-            >
-              Please provide as much detail as you are comfortable sharing so we
-              can pray specifically for your situation.
+          <h2 class="text-center">How to Reach Us</h2>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <i class="fas fa-map-marker-alt"></i>
+              <h3>Visit Us</h3>
+              <p>
+                LEA Primary School Dawaki, <br />
+                Abuja
+              </p>
+              <a
+                href="https://maps.app.goo.gl/YourMapLink"
+                target="_blank"
+                class="cta-button minimal-cta"
+              >
+                Get Directions <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+            <div class="contact-card">
+              <i class="fas fa-phone-alt"></i>
+              <h3>Call Us</h3>
+              <p>General Inquiries: (555) 123-4567</p>
+              <p>Prayer Line: (555) 987-6543</p>
+              <a href="tel:5551234567" class="cta-button minimal-cta">
+                Call Now <i class="fas fa-phone"></i>
+              </a>
+            </div>
+            <div class="contact-card">
+              <i class="fas fa-clock"></i>
+              <h3>Service Times</h3>
+              <p>Sundays: 9:00 AM & 11:00 AM</p>
+              <a href="../allevents/" class="cta-button minimal-cta">
+                View Full Schedule <i class="fas fa-calendar-alt"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-padding bg-light">
+        <div class="container flex-row">
+          <div class="contact-form">
+            <h2 style="margin-top: 0">Send Us A Message</h2>
+            <p style="margin-bottom: 2em; color: var(--color-text-dark)">
+              Fill out the form below and we'll get back to you within 48 hours.
             </p>
 
             <form action="#" method="POST">
               <div class="form-group">
-                <label for="name">Your Name (Optional, for follow-up)</label>
+                <label for="name">Your Full Name *</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
-                  placeholder="Anonymous or Your Name"
+                  required
+                  placeholder="John Doe"
                 />
               </div>
               <div class="form-group">
-                <label for="email"
-                  >Email Address (Optional, if you would like a response)</label
-                >
+                <label for="email">Email Address *</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
-                  placeholder="example@email.com"
+                  required
+                  placeholder="john.doe@example.com"
                 />
               </div>
               <div class="form-group">
-                <label for="request_type">Request Type *</label>
-                <select id="request_type" name="request_type" required>
+                <label for="topic">Topic of Inquiry *</label>
+                <select id="topic" name="topic" required>
                   <option value="" disabled selected>
-                    Choose the nature of your request
+                    Select a reason for contacting us
                   </option>
-                  <option value="healing">Healing / Health</option>
-                  <option value="financial">Financial / Provision</option>
-                  <option value="family">Family / Relationship</option>
-                  <option value="salvation">
-                    Salvation / Spiritual Growth
+                  <option value="prayer">Prayer Request 🙏</option>
+                  <option value="volunteer">
+                    Volunteer/Serving Opportunity
                   </option>
-                  <option value="other">General / Other</option>
+                  <option value="general">General Question</option>
+                  <option value="visit">Planning a Visit</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="message"
-                  >Your Prayer Request (Be specific!) *</label
-                >
+                <label for="message">Your Message </label>
                 <textarea
                   id="message"
                   name="message"
                   required
-                  placeholder="Lord, I ask for strength and guidance as I face..."
+                  placeholder="Type your message here..."
                 ></textarea>
               </div>
-
               <button type="submit" class="cta-button primary-cta">
-                Submit Prayer Request <i class="fas fa-paper-plane"></i>
+                Send Message
               </button>
-              <p class="anonymity-note">
-                <i class="fas fa-lock"></i> All requests are kept strictly
-                confidential.
-              </p>
             </form>
+          </div>
+          <div class="contact-info">
+            <h2>Need Prayer?</h2>
+            <p style="margin-bottom: 2em">
+              Our team is here to support you in prayer. Submit your request
+              anonymously or directly.
+            </p>
+            <a
+              href="../prayer-request/"
+              class="cta-button primary-cta"
+              style="margin-bottom: 2em"
+            >
+              Submit Prayer Request
+            </a>
+            <h2>Want to Join a Group?</h2>
+            <p style="margin-bottom: 2em">
+              Small groups are the best way to get connected and grow in your
+              faith journey.
+            </p>
+            <a
+              href="#"
+              class="cta-button secondary-cta"
+              style="
+                background-color: var(--color-primary);
+                border-color: var(--color-primary);
+              "
+            >
+              Find a Group Today
+            </a>
           </div>
         </div>
       </section>
-      <section class="section-padding-small text-center">
-        <div class="container">
-          <h2>Need to Speak with Someone?</h2>
-          <p>
-            If you need urgent support or counseling, please contact us directly
-            by phone.
-          </p>
-          <a
-            href="tel:5551234567"
-            class="cta-button secondary-cta"
-            style="
-              background-color: var(--color-primary);
-              border-color: var(--color-primary);
-              margin-top: 1em;
-            "
-          >
-            Call Our Ministry Line Now
-          </a>
+      <section class="section-padding-small">
+        <div class="container text-center">
+          <h2>Find Our Location</h2>
+          <div class="map-embed">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15783.568449906662!2d7.39956461977539!3d9.014291100000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e768c740a3d4f%3A0x6b4457223b3f2f81!2sDawaki%20Extension%20LEA%20Primary%20School!5e0!3m2!1sen!2sng!4v1714574971277!5m2!1sen!2sng"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Google Map showing LEA Primary School Dawaki, Abuja"
+            ></iframe>
+          </div>
         </div>
       </section>
-
       <section class="give-section bg-dark text-white section-padding-small">
         <div class="container flex-justify-between">
-          <h2>Support Our Mission</h2>
+          <h2 style="color: white">Support Our Mission</h2>
           <p>
             Generosity fuels everything we do—from our services to our community
             outreach.
@@ -534,14 +600,15 @@
         </div>
       </section>
     </main>
-
     <footer class="main-footer">
       <div class="container footer-grid">
         <div class="footer-col">
           <p class="logo">All Bride Assembly Church</p>
-          <p>© 2025 All Bride Assembly Church. All Rights Reserved.</p>
+          <p>&copy;2024. All Rights Reserved.</p>
           <div class="social-icons">
-            <a href="#" aria-label="Facebook"
+            <a
+              href="https://web.facebook.com/profile.php?id=61567275722047"
+              aria-label="Facebook"
               ><i class="fab fa-facebook-f"></i
             ></a>
             <a href="#" aria-label="Instagram"
@@ -554,15 +621,15 @@
         <div class="footer-col">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="../visit/visit.html">Plan Your Visit</a></li>
-            <li><a href="../our-beliefs/our-belief.html">Our Beliefs</a></li>
-            <li><a href="../sermon/sermon.html">Sermon Archives</a></li>
-            <li><a href="./connect.html">Contact Us</a></li>
+            <li><a href="../visit/">Plan Your Visit</a></li>
+            <li><a href="../our-beliefs/">Our Beliefs</a></li>
+            <li><a href="../sermon/">Sermon Archives</a></li>
+            <li><a href="../connect/">Contact Us</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Contact Info</h4>
-          <p>123 Church Road, Anytown, CA 90210</p>
+          <p>LEA Primary school Dawaki Abuja Nigeria</p>
           <p>Phone: (555) 123-4567</p>
           <p>Email: info@gatheringplace.org</p>
         </div>
@@ -577,6 +644,7 @@
         menuToggle.addEventListener("click", () => {
           header.classList.toggle("nav-open");
         });
+
         // Optional: Close the mobile menu when a link is clicked
         const navLinks = document.querySelectorAll(".main-nav a");
         navLinks.forEach((link) => {

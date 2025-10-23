@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sermon Archive | All Bride Assembly Church</title>
+    <link
+      rel="icon"
+      href="/assets/images/All_Bride_Assembly_Church-removebg-preview.png"
+      type="png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Merriweather:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* --- 1. CSS VARIABLES (Palette & Typography) --- */
+      :root {
+        --color-primary: #1e3a24; /* Deep Forest Green */
+        --color-secondary: #f59e0b; /* Warm Gold/Orange */
+        --color-text-dark: #333;
+        --color-text-light: #fff;
+        --color-background-light: #f9f9f9;
+        --color-background-dark: #1f2937;
+        --color-card-border: #f0f0f0;
+        --font-heading: "Montserrat", sans-serif;
+        --font-body: "Merriweather", serif;
+      }
+      /* --- 2. GLOBAL RESET & BASE STYLES --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-body);
+        color: var(--color-text-dark);
+        line-height: 1.6;
+        background-color: var(--color-text-light);
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-heading);
+        color: var(--color-primary);
+        margin-bottom: 0.5em;
+        font-weight: 700;
+      }
+
+      h1 {
+        font-size: 2.5em;
+      }
+      h2 {
+        font-size: 2em;
+      }
+      h3 {
+        font-size: 1.5em;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--color-primary);
+        transition: color 0.3s;
+      }
+
+      /* Helper Classes */
+      .bg-light {
+        background-color: var(--color-background-light);
+      }
+      .bg-dark {
+        background-color: var(--color-background-dark);
+      }
+      .text-center {
+        text-align: center;
+      }
+      .section-padding {
+        padding: 4em 0;
+      }
+      .w-full {
+        width: 100%;
+      }
+      .mb-4 {
+        margin-bottom: 1rem;
+      }
+
+      /* --- 3. CTA BUTTON STYLES --- */
+      .cta-button {
+        display: inline-block;
+        padding: 0.75em 1.5em;
+        border-radius: 5px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        transition: background-color 0.3s, color 0.3s, transform 0.1s;
+      }
+      .primary-cta {
+        background-color: var(--color-secondary);
+        color: var(--color-text-dark);
+        border: 2px solid var(--color-secondary);
+      }
+      .primary-cta:hover {
+        background-color: transparent;
+        color: var(--color-secondary);
+        transform: translateY(-2px);
+      }
+      .secondary-cta {
+        background-color: transparent;
+        color: var(--color-primary);
+        border: 2px solid var(--color-primary);
+      }
+      .secondary-cta:hover {
+        background-color: var(--color-primary);
+        color: var(--color-secondary);
+        transform: translateY(-2px);
+      }
+      .minimal-cta {
+        background: none;
+        border: none;
+        color: var(--color-secondary);
+        padding: 0;
+        margin-top: 1em;
+        font-style: italic;
+        font-family: var(--font-body);
+      }
+
+      /* --- 4. GLOBAL HEADER & NAVIGATION STYLES --- */
+      .main-header {
+        background-color: var(--color-primary);
+        padding: 1em 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        font-family: var(--font-heading);
+        font-size: 1.5em;
+        color: var(--color-text-light);
+        font-weight: 700;
+      }
+      .main-nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.5em;
+      }
+      .main-nav a {
+        color: var(--color-text-light);
+        font-weight: 400;
+        padding: 0.5em 0;
+      }
+      .main-nav a:hover {
+        color: var(--color-secondary);
+      }
+      .nav-cta {
+        margin-left: 1.5em;
+      }
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--color-text-light);
+        font-size: 1.5em;
+        cursor: pointer;
+      }
+
+      /* --- 5. FOOTER STYLES --- */
+      .main-footer {
+        background-color: var(--color-background-dark);
+        color: var(--color-text-light);
+        padding: 3em 0;
+        font-size: 0.9em;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2em;
+      }
+      .footer-col h4 {
+        color: var(--color-secondary);
+        margin-bottom: 1em;
+      }
+      .footer-col a {
+        color: var(--color-text-light);
+        display: block;
+        margin-bottom: 0.5em;
+      }
+      .footer-col a:hover {
+        color: var(--color-secondary);
+      }
+      .social-icons a {
+        display: inline-block;
+        font-size: 1.5em;
+        margin-right: 0.75em;
+        margin-top: 1em;
+      }
+
+      /* --- 6. SERMONS PAGE SPECIFIC STYLES --- */
+
+      /* Page Hero/Title Section */
+      .page-hero {
+        background-color: var(--color-primary);
+        color: var(--color-text-light);
+        padding: 6em 0 4em 0;
+      }
+      .page-hero h1 {
+        color: var(--color-text-light);
+        font-size: 3em;
+      }
+      .page-hero .subtitle {
+        font-size: 1.2em;
+        opacity: 0.8;
+      }
+
+      /* Latest Sermon Feature */
+      .sermon-details {
+        display: flex;
+        align-items: flex-start;
+        gap: 3em;
+        margin-top: 2em;
+      }
+
+      .sermon-video-player {
+        flex: 3;
+      }
+
+      .sermon-metadata {
+        flex: 2;
+      }
+
+      .video-embed,
+      .audio-embed {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+      /* Video specific sizing (16:9) */
+      .video-embed {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+      }
+      .video-embed iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      /* Audio player specific styling */
+      .audio-embed {
+        padding: 2em;
+        background: var(--color-background-light);
+      }
+      .audio-embed audio {
+        width: 100%;
+        display: block;
+      }
+
+      .sermon-metadata h3 {
+        margin-top: 0;
+        color: var(--color-primary);
+      }
+      .sermon-metadata p {
+        margin-bottom: 1em;
+      }
+      .sermon-metadata .speaker strong,
+      .sermon-metadata .date strong {
+        font-weight: 700;
+        color: var(--color-text-dark);
+        margin-right: 0.25em;
+      }
+      .sermon-metadata .speaker i,
+      .sermon-metadata .date i {
+        margin-right: 0.5em;
+      }
+
+      .sermon-actions {
+        display: flex;
+        gap: 1em;
+        margin-top: 2em;
+      }
+
+      /* Archive Controls & Grid */
+      .archive-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1.5em;
+        margin: 2em 0 3em 0;
+      }
+
+      .search-input {
+        flex-grow: 3;
+      }
+      #series-filter {
+        flex-grow: 1;
+      }
+
+      .search-input,
+      #series-filter {
+        padding: 0.75em 1em;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1em;
+        height: 44px;
+      }
+
+      /* Sermon Archive Grid */
+      .sermon-archive-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5em;
+      }
+
+      .sermon-card {
+        display: block;
+        background-color: var(--color-text-light);
+        padding: 1.5em;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        border-left: 5px solid var(--color-secondary);
+        transition: transform 0.3s, box-shadow 0.3s;
+        color: var(--color-text-dark);
+      }
+
+      .sermon-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+        color: var(--color-text-dark);
+      }
+
+      .sermon-card h4 {
+        color: var(--color-primary);
+        margin: 0.5em 0;
+        font-size: 1.25em;
+      }
+
+      .series-tag {
+        display: inline-block;
+        background-color: var(--color-primary);
+        color: var(--color-text-light);
+        font-size: 0.75em;
+        padding: 0.25em 0.5em;
+        border-radius: 3px;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .card-meta {
+        font-size: 0.9em;
+        color: #666;
+        font-style: italic;
+        margin-bottom: 0.5em;
+      }
+
+      /* Pagination Controls */
+      .pagination-controls {
+        margin-top: 3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+      }
+      .pagination-controls .minimal-cta.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+        cursor: default;
+      }
+      .page-number {
+        font-weight: 700;
+      }
+
+      /* --- 7. Responsive Adjustments --- */
+      @media (max-width: 900px) {
+        /* Mobile Nav Override */
+        .main-nav,
+        .nav-cta {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          text-align: center;
+          background-color: var(--color-primary);
+          position: absolute;
+          top: 60px;
+          left: 0;
+          padding: 1em 0;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+        .main-nav.active,
+        .nav-cta.active {
+          display: flex;
+        }
+        .main-nav ul {
+          flex-direction: column;
+          gap: 0;
+        }
+        .main-nav li {
+          padding: 0.5em 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .main-nav a {
+          padding: 0.5em 1em;
+          display: block;
+        }
+        .nav-cta.active {
+          margin: 1em auto;
+          width: 80%;
+        }
+        .menu-toggle {
+          display: block;
+        }
+
+        /* Sermon Details Stack */
+        .sermon-details {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: 1.5em;
+        }
+        .sermon-metadata {
+          flex: 1;
+          width: 100%;
+          margin-top: 1em;
+        }
+        .sermon-actions {
+          justify-content: center;
+        }
+
+        /* Archive Controls Stack */
+        .archive-controls {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 1em;
+        }
+        .search-input,
+        #series-filter {
+          width: 100%;
+          flex-grow: initial;
+        }
+        /* Buttons should flow to next line if necessary */
+        .sermon-actions {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .sermon-actions a {
+          /* Full width buttons on very small screens */
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      /* --- 8. MODAL STYLES --- */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 200;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding-top: 60px;
+      }
+
+      .modal-content {
+        background-color: var(--color-text-light);
+        margin: 5% auto;
+        padding: 30px;
+        border-radius: 8px;
+        width: 90%;
+        max-width: 800px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        position: relative;
+      }
+
+      .modal-content h3 {
+        color: var(--color-primary);
+        margin-top: 0;
+      }
+
+      .close-btn {
+        color: var(--color-text-dark);
+        position: absolute;
+        top: 10px;
+        right: 25px;
+        font-size: 28px;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      .close-btn:hover,
+      .close-btn:focus {
+        color: var(--color-secondary);
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .modal-body {
+        max-height: 70vh;
+        overflow-y: auto;
+        padding-right: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="container header-content">
+        <a href="index.html" class="logo">All Bride Assembly Church</a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="../about/">About Us</a></li>
+            <li><a href="../sermon/">Sermons</a></li>
+            <li><a href="../allevents/">Events</a></li>
+            <li><a href="../connect/">Connect</a></li>
+          </ul>
+        </nav>
+        <a href="../give/" class="cta-button nav-cta primary-cta">Give</a>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+    <main>
+      <section class="page-hero section-padding text-center">
+        <div class="container">
+          <h1>Listen & Watch: Sermons</h1>
+          <p class="subtitle">
+            Catch up on the latest messages or explore our archive of past
+            series.
+          </p>
+        </div>
+      </section>
+
+      <section class="latest-sermon-feature section-padding">
+        <div class="container">
+          <h2 class="text-center">
+            Latest Message: <span id="featured-status">Live Now</span>
+          </h2>
+
+          <div class="sermon-details">
+            <div class="sermon-video-player" id="sermon-player"></div>
+
+            <div class="sermon-metadata">
+              <h3></h3>
+              <p class="speaker mb-4">
+                <i class="fas fa-microphone"></i> <strong>Speaker:</strong>
+              </p>
+              <p class="date mb-4">
+                <i class="fas fa-calendar"></i> <strong>Date:</strong>
+              </p>
+              <p></p>
+
+              <div class="sermon-actions">
+                <a
+                  href="#"
+                  class="cta-button primary-cta"
+                  id="listen-audio-cta"
+                  data-audio-url=""
+                >
+                  <i class="fas fa-headphones"></i> Listen to Audio Only
+                </a>
+                <a href="#" class="cta-button secondary-cta" id="view-notes-cta"
+                  ><i class="fas fa-file-alt"></i> View Notes/Transcript</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sermon-archive-section bg-light section-padding">
+        <div class="container">
+          <h2 class="text-center">Sermon Archive</h2>
+
+          <div class="archive-controls">
+            <input
+              type="text"
+              placeholder="Search by Topic, Speaker, or Date..."
+              class="search-input"
+            />
+            <select name="series" id="series-filter">
+              <option value="">Filter by Series</option>
+              <option value="community">The Power of Community (2025)</option>
+              <option value="genesis">Journey through Genesis (2024)</option>
+              <option value="holyspirit">
+                The Holy Spirit Unpacked (2024)
+              </option>
+            </select>
+          </div>
+
+          <div class="sermon-archive-grid">
+            <a
+              href="sermon-detail-2.html"
+              class="sermon-card"
+              data-series="community"
+            >
+              <p class="series-tag">The Power of Community</p>
+              <h4>Part 2: Deepening Connection</h4>
+              <p class="card-meta">Pastor Jane Smith | September 24, 2025</p>
+              <p>
+                The second message in the series focuses on the importance of
+                small groups and intentional fellowship.
+              </p>
+            </a>
+
+            <a
+              href="sermon-detail-3.html"
+              class="sermon-card"
+              data-series="community"
+            >
+              <p class="series-tag">The Power of Community</p>
+              <h4>Part 1: The Gathering</h4>
+              <p class="card-meta">Pastor John Doe | September 17, 2025</p>
+              <p>
+                The series kickoff: why gathering together is essential for our
+                spiritual health and growth.
+              </p>
+            </a>
+
+            <a
+              href="sermon-detail-4.html"
+              class="sermon-card"
+              data-series="genesis"
+            >
+              <p class="series-tag">Journey through Genesis</p>
+              <h4>Week 12: The Covenant</h4>
+              <p class="card-meta">Pastor John Doe | August 20, 2024</p>
+              <p>
+                A look at the foundational promises God makes to His people and
+                what they mean today.
+              </p>
+            </a>
+
+            <a
+              href="sermon-detail-6.html"
+              class="sermon-card"
+              data-series="holyspirit"
+            >
+              <p class="series-tag">The Holy Spirit Unpacked</p>
+              <h4>Session 5: Gifts of the Spirit</h4>
+              <p class="card-meta">Guest Speaker Tom | July 1, 2024</p>
+              <p>
+                Understanding and activating the spiritual gifts God has given
+                to His church.
+              </p>
+            </a>
+          </div>
+
+          <div class="pagination-controls text-center">
+            <a href="#" id="prev-page" class="cta-button minimal-cta disabled"
+              >Previous</a
+            >
+            <span class="page-number">Page 1 of 5</span>
+            <a href="#" id="next-page" class="cta-button minimal-cta">Next</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="main-footer">
+      <div class="container footer-grid">
+        <div class="footer-col logo-col">
+          <p class="logo">All Bride Assembly church</p>
+          <p>&copy; 2024. All Rights Reserved.</p>
+          <div class="social-icons">
+            <a href="https://web.facebook.com/profile.php?id=61567275722047"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../visit/">Plan Your Visit</a></li>
+            <li><a href="../our-beliefs/">Our Beliefs</a></li>
+            <li><a href="../sermon/">Sermon Archives</a></li>
+            <li><a href="../connect/">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <p>LEA Primary school Dawaki Abuja Nigeria</p>
+          <p>Phone: (555) 123-4567</p>
+          <p>Email: info@gatheringplace.org</p>
+        </div>
+      </div>
+    </footer>
+
+    <div id="transcript-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" id="close-modal">&times;</span>
+        <h3>Sermon Notes & Transcript: Serving the City</h3>
+        <div class="modal-body">
+          <p><strong>Scripture Reading:</strong> Romans 12:1-2</p>
+
+          <p>
+            Welcome, everyone! Today, we wrap up our series on "The Power of
+            Community" by looking outward. Community isn't just about what
+            happens inside these walls; it's about what we do for the world
+            outside.
+          </p>
+
+          <h4>1. The Mandate to Move (The Why)</h4>
+          <p>
+            We are called to be salt and light. Salt preserves and seasons;
+            light illuminates. If we keep both inside the container, they serve
+            no purpose. Serving the city is not an optional add-on; it is the
+            natural outpouring of a healthy spiritual life. We must move past
+            the comfort of our own group to meet the needs of our neighbors.
+          </p>
+
+          <h4>2. Practical Action (The How)</h4>
+          <p>
+            Serving doesn't always mean massive mission trips. It often means
+            simple acts of love:
+          </p>
+          <ul>
+            <li>Volunteering at the local school.</li>
+            <li>Helping a single parent with yard work.</li>
+            <li>Supporting local food banks.</li>
+          </ul>
+          <p>
+            It's about demonstrating God's love in practical, tangible ways that
+            require no sermon, just a helping hand.
+          </p>
+
+          <h4>3. The Transformative Power</h4>
+          <p>
+            When we serve, we are transformed just as much as those we help. It
+            shifts our perspective from scarcity to abundance, from being served
+            to serving. Let us go forth and truly be the hands and feet of
+            Christ in our community. Amen.
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // IMPORTANT: REPLACE 'YOUR_YOUTUBE_CHANNEL_ID_HERE' with your actual channel ID
+        const YOUR_CHANNEL_ID = "YOUR_YOUTUBE_CHANNEL_ID_HERE";
+
+        // --- SERMON ARCHIVE DATA ARRAY ---
+        // The first object (index 0) is used as the default featured sermon when not live.
+        const SERMON_DATA = [
+          {
+            id: "VIDEO_ID_3", // <-- Replace with the YouTube ID of your most recent sermon
+            title: "Part 3: Serving the City",
+            speaker: "Pastor John Doe",
+            date: "October 1, 2025",
+            description:
+              "This week, Pastor John challenges us to move beyond our walls and actively serve the city, demonstrating God's love through practical action.",
+            audioUrl:
+              "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+          },
+          {
+            id: "VIDEO_ID_2", // <-- Replace with the YouTube ID of the second most recent sermon
+            title: "Part 2: Deepening Connection",
+            speaker: "Pastor Jane Smith",
+            date: "September 24, 2025",
+            description:
+              "The second message in the series focuses on the importance of small groups and intentional fellowship.",
+            audioUrl: "path/to/part_2_audio.mp3",
+          },
+          // Add more sermons here as needed...
+        ];
+        // --- END SERMON ARCHIVE DATA ---
+
+        // --- Global Elements ---
+        const menuToggle = document.querySelector(".menu-toggle");
+        const mainNav = document.querySelector(".main-nav");
+        const navCta = document.querySelector(".nav-cta");
+
+        const featuredStatus = document.getElementById("featured-status");
+        const sermonPlayer = document.getElementById("sermon-player");
+        const listenAudioCta = document.getElementById("listen-audio-cta");
+        const viewNotesCta = document.getElementById("view-notes-cta");
+        const transcriptModal = document.getElementById("transcript-modal");
+        const closeModalBtn = document.getElementById("close-modal");
+
+        // Elements for the dynamic metadata update
+        const metaTitle = document.querySelector(".sermon-metadata h3");
+        const metaSpeaker = document.querySelector(".sermon-metadata .speaker");
+        const metaDate = document.querySelector(".sermon-metadata .date");
+        const metaDescription = document.querySelector(
+          ".sermon-metadata p:nth-of-type(3)"
+        );
+
+        // 1. LIVE STREAM HTML (Uses the YouTube Channel live feed)
+        const liveStreamHTML = `
+                <div class="video-embed">
+                    <iframe
+                        width="100%"
+                        height="450"
+                        src="https://www.youtube.com/embed/live_stream?channel=${YOUR_CHANNEL_ID}&autoplay=1&mute=1" 
+                        title="Live Stream"
+                        frameborder="0"
+                        allowfullscreen
+                        allow="autoplay"
+                    ></iframe>
+                </div>`;
+
+        // The default featured sermon (the most recent one)
+        const featuredSermon = SERMON_DATA[0];
+
+        // --- CORE FUNCTIONS ---
+
+        // Function to load the featured sermon (past video) from the array
+        const loadFeaturedSermon = (sermon) => {
+          const sermonVideoHTML = `
+                    <div class="video-embed">
+                        <iframe
+                            width="100%"
+                            height="450"
+                            src="https://www.youtube.com/embed/${sermon.id}" 
+                            title="${sermon.title}"
+                            frameborder="0"
+                            allowfullscreen
+                        ></iframe>
+                    </div>`;
+
+          sermonPlayer.innerHTML = sermonVideoHTML;
+
+          // Update metadata details dynamically
+          featuredStatus.textContent = "Latest Message";
+          metaTitle.textContent = sermon.title;
+          metaSpeaker.innerHTML = `<i class="fas fa-microphone"></i> <strong>Speaker:</strong> ${sermon.speaker}`;
+          metaDate.innerHTML = `<i class="fas fa-calendar"></i> <strong>Date:</strong> ${sermon.date}`;
+          metaDescription.textContent = sermon.description;
+
+          // Update the Audio CTA with the sermon's specific audio URL
+          listenAudioCta.setAttribute("data-audio-url", sermon.audioUrl);
+        };
+
+        // Function to load the Live Stream
+        const loadLiveStream = () => {
+          // For true live checking, you'd need a backend API.
+          // For this client-side code, we load the embed, which usually
+          // defaults to the latest video if no stream is active.
+
+          sermonPlayer.innerHTML = liveStreamHTML;
+
+          // Set metadata to reflect Live status
+          featuredStatus.textContent = "Live Now";
+          metaTitle.textContent = "LIVE: Sunday Service";
+          metaSpeaker.innerHTML = `<i class="fas fa-microphone"></i> <strong>Speaker:</strong> Various`;
+          metaDate.innerHTML = `<i class="fas fa-calendar"></i> <strong>Date:</strong> Live Stream`;
+          metaDescription.textContent =
+            "Join us live now for our service! If we are not currently streaming, this player will show our most recent message. Check your streaming platform for details.";
+
+          // Set audio URL to the featured sermon's audio as a fallback
+          listenAudioCta.setAttribute(
+            "data-audio-url",
+            featuredSermon.audioUrl
+          );
+        };
+
+        // --- 1. Mobile Navigation Toggle ---
+        if (menuToggle) {
+          menuToggle.addEventListener("click", () => {
+            mainNav.classList.toggle("active");
+            navCta.classList.toggle("active");
+          });
+        }
+
+        // --- 2. Audio Playback Functionality ---
+        const loadAudio = (audioUrl) => {
+          if (!audioUrl) return;
+
+          sermonPlayer.innerHTML = `
+                    <div class="audio-embed">
+                        <h4 style="margin-bottom: 1em; color: var(--color-primary);">Now Playing Audio Only</h4>
+                        <audio controls class="w-full">
+                            <source src="${audioUrl}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p style="margin-top: 1em; font-size: 0.9em; color: #666;">
+                            <a href="#" id="switch-to-video" style="color: var(--color-secondary);">Switch back to Video</a>
+                        </p>
+                    </div>`;
+
+          document
+            .getElementById("switch-to-video")
+            .addEventListener("click", (e) => {
+              e.preventDefault();
+              // When switching back, load the most recent sermon video
+              loadFeaturedSermon(featuredSermon);
+            });
+        };
+
+        if (listenAudioCta) {
+          listenAudioCta.addEventListener("click", (e) => {
+            e.preventDefault();
+            const currentAudioUrl =
+              listenAudioCta.getAttribute("data-audio-url");
+            loadAudio(currentAudioUrl);
+          });
+        }
+
+        // --- 3. Transcript Modal Functionality ---
+        if (viewNotesCta) {
+          viewNotesCta.addEventListener("click", (e) => {
+            e.preventDefault();
+            transcriptModal.style.display = "block";
+            document.body.style.overflow = "hidden";
+          });
+        }
+
+        if (closeModalBtn) {
+          closeModalBtn.addEventListener("click", () => {
+            transcriptModal.style.display = "none";
+            document.body.style.overflow = "auto";
+          });
+        }
+
+        window.addEventListener("click", (event) => {
+          if (event.target === transcriptModal) {
+            transcriptModal.style.display = "none";
+            document.body.style.overflow = "auto";
+          }
+        });
+
+        // --- 4. Sermon Archive Functionality (Search & Filter) ---
+        const searchInput = document.querySelector(".search-input");
+        const seriesFilter = document.getElementById("series-filter");
+        const sermonCards = document.querySelectorAll(".sermon-card");
+
+        const filterSermons = () => {
+          const searchTerm = searchInput.value.toLowerCase().trim();
+          const selectedSeriesValue = seriesFilter.value;
+
+          sermonCards.forEach((card) => {
+            const cardTitle = card
+              .querySelector("h4")
+              .textContent.toLowerCase();
+            const cardMeta = card
+              .querySelector(".card-meta")
+              .textContent.toLowerCase();
+            const cardTag = card
+              .querySelector(".series-tag")
+              .textContent.toLowerCase();
+
+            const matchesSearch =
+              searchTerm === "" ||
+              cardTitle.includes(searchTerm) ||
+              cardMeta.includes(searchTerm);
+            const matchesFilter =
+              selectedSeriesValue === "" ||
+              cardTag.includes(selectedSeriesValue);
+
+            if (matchesSearch && matchesFilter) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        };
+
+        searchInput.addEventListener("input", filterSermons);
+        seriesFilter.addEventListener("change", filterSermons);
+
+        // --- 5. Pagination Placeholder (Basic) ---
+        const prevPage = document.getElementById("prev-page");
+        const nextPage = document.getElementById("next-page");
+        const pageNumber = document.querySelector(".page-number");
+        let currentPage = 1;
+        const totalPages = 5;
+
+        const updatePagination = () => {
+          pageNumber.textContent = `Page ${currentPage} of ${totalPages}`;
+          prevPage.classList.toggle("disabled", currentPage === 1);
+          nextPage.classList.toggle("disabled", currentPage === totalPages);
+        };
+
+        if (prevPage) {
+          prevPage.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (currentPage > 1) {
+              currentPage--;
+              updatePagination();
+            }
+          });
+        }
+
+        if (nextPage) {
+          nextPage.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (currentPage < totalPages) {
+              currentPage++;
+              updatePagination();
+            }
+          });
+        }
+
+        // --- Initial load ---
+        // Load the Live Stream by default. YouTube's embed will fall back to the
+        // most recent video if the stream is offline, but we still load the featured
+        // sermon's *metadata* to provide correct context and audio links.
+
+        // 1. Try to load the live stream first
+        loadLiveStream();
+
+        // 2. Fallback for metadata (This is the most logical assumption when not live)
+        if (SERMON_DATA.length > 0) {
+          // Check if the stream is actually live (requires API, so we assume NO for client-side)
+          // For a reliable offline state, you would uncomment the line below.
+          // loadFeaturedSermon(featuredSermon);
+        }
+
+        filterSermons();
+        updatePagination();
+      });
+    </script>
+  </body>
+</html>
