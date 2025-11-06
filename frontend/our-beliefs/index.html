@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Core Beliefs | The Gathering Place</title>
+    <link
+      rel="icon"
+      href="/assets/images/All_Bride_Assembly_Church-removebg-preview.png"
+      type="png"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Merriweather:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* --- 1. CSS VARIABLES (Palette & Typography) --- */
+      :root {
+        --color-primary: #1e3a24; /* Deep Forest Green */
+        --color-secondary: #f59e0b; /* Warm Gold/Orange */
+        --color-text-dark: #333;
+        --color-text-light: #fff;
+        --color-background-light: #f9f9f9;
+        --color-background-dark: #1f2937;
+
+        --font-heading: "Montserrat", sans-serif;
+        --font-body: "Merriweather", serif;
+      }
+
+      /* --- 2. GLOBAL RESET & BASE STYLES --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-body);
+        color: var(--color-text-dark);
+        line-height: 1.6;
+        background-color: var(--color-text-light);
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-heading);
+        color: var(--color-primary);
+        margin-bottom: 0.5em;
+        font-weight: 700;
+      }
+
+      h1 {
+        font-size: 2.5em;
+      }
+      h2 {
+        font-size: 2em;
+      }
+      h3 {
+        font-size: 1.5em;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--color-primary);
+        transition: color 0.3s;
+      }
+
+      /* Helper Classes */
+      .bg-light {
+        background-color: var(--color-background-light);
+      }
+      .bg-dark {
+        background-color: var(--color-background-dark);
+      }
+      .text-center {
+        text-align: center;
+      }
+      .section-padding {
+        padding: 4em 0;
+      }
+      .text-white {
+        color: var(--color-text-light) !important;
+      }
+
+      /* --- 3. CTA BUTTON STYLES --- */
+      .cta-button {
+        display: inline-block;
+        padding: 0.75em 1.5em;
+        border-radius: 5px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .primary-cta {
+        background-color: var(--color-secondary);
+        color: var(--color-text-dark);
+        border: 2px solid var(--color-secondary);
+      }
+      .primary-cta:hover {
+        background-color: transparent;
+        color: var(--color-secondary);
+      }
+      .minimal-cta {
+        background: none;
+        border: none;
+        color: var(--color-secondary);
+        padding: 0;
+        font-style: italic;
+        margin-top: 1.5em;
+      }
+
+      /* --- 4. GLOBAL HEADER & NAVIGATION STYLES (Simplified) --- */
+      .main-header {
+        background-color: var(--color-primary);
+        padding: 1em 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        font-family: var(--font-heading);
+        font-size: 1.5em;
+        color: var(--color-text-light);
+        font-weight: 700;
+      }
+      .main-nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.5em;
+      }
+      .main-nav a {
+        color: var(--color-text-light);
+        font-weight: 400;
+      }
+      .nav-cta {
+        margin-left: 1.5em;
+      }
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--color-text-light);
+        font-size: 1.5em;
+        cursor: pointer;
+      }
+
+      /* --- 5. FOOTER STYLES (Simplified) --- */
+      .main-footer {
+        background-color: var(--color-background-dark);
+        color: var(--color-text-light);
+        padding: 3em 0;
+        font-size: 0.9em;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2em;
+      }
+      .footer-col h4 {
+        color: var(--color-secondary);
+        margin-bottom: 1em;
+      }
+      .footer-col a {
+        color: var(--color-text-light);
+        display: block;
+        margin-bottom: 0.5em;
+      }
+      .social-icons a {
+        display: inline-block;
+        font-size: 1.5em;
+        margin-right: 0.75em;
+        margin-top: 1em;
+      }
+
+      /* --- 6. BELIEFS PAGE SPECIFIC STYLES --- */
+
+      /* Page Hero/Title Section */
+      .page-hero {
+        background-color: var(--color-primary);
+        color: var(--color-text-light);
+        padding: 6em 0 4em 0;
+      }
+      .page-hero h1 {
+        color: var(--color-text-light);
+        font-size: 3em;
+      }
+      .page-hero .subtitle {
+        font-size: 1.2em;
+        opacity: 0.8;
+      }
+
+      /* Main Beliefs List */
+      .beliefs-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2em;
+        margin-top: 2em;
+      }
+      .belief-point {
+        padding: 2em;
+        border-left: 8px solid var(--color-secondary);
+        background-color: var(--color-background-light);
+        border-radius: 0 10px 10px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+      .belief-point h3 {
+        margin-top: 0;
+        color: var(--color-primary);
+        font-size: 1.7em;
+      }
+      .full-statement-link {
+        text-align: center;
+        margin-top: 4em;
+      }
+      .full-statement-link p {
+        margin-bottom: 1em;
+      }
+
+      /* Summary Section */
+      .summary-section {
+        background-color: var(--color-primary);
+        color: var(--color-text-light);
+        padding: 3em 0;
+        text-align: center;
+      }
+      .summary-section h2 {
+        color: var(--color-secondary);
+      }
+
+      /* --- 7. Responsive Adjustments --- */
+      @media (max-width: 900px) {
+        .main-nav,
+        .nav-cta {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="container header-content">
+        <a href="index.html" class="logo">All Bride Assembly Church </a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="../about/">About Us</a></li>
+            <li><a href="../sermon/">Sermons</a></li>
+            <li><a href="../allevents/">Events</a></li>
+            <li><a href="../connect/">Connect</a></li>
+          </ul>
+        </nav>
+        <a href="../give/" class="cta-button nav-cta primary-cta">Give</a>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero section-padding text-center">
+        <div class="container">
+          <h1>Our Core Beliefs</h1>
+          <p class="subtitle">
+            The foundational truths that guide our worship, ministry, and daily
+            lives. <strong>END TIME MESSAGE</strong>
+          </p>
+        </div>
+      </section>
+      <section class="beliefs-section section-padding">
+        <div class="container">
+          <div class="beliefs-list">
+            <div class="belief-point">
+              <h3>1. The Bible</h3>
+              <p>
+                We believe the Bible (the 66 books of the Old and New
+                Testaments) is the divinely inspired, **inerrant, and infallible
+                Word of God**. It is the complete revelation of His will for the
+                salvation of mankind, and it is the supreme and final authority
+                for all Christian faith and life.
+              </p>
+            </div>
+            <div class="belief-point">
+              <h3>2. God (The Trinity)</h3>
+              <p>
+                We believe in one GOD, who manifested himself in three
+                offices(Father, Son and Holy Ghost) for the
+                purpose of redemption.
+              </p>
+            </div>
+            <div class="belief-point">
+              <h3>3. Jesus Christ</h3>
+              <p>
+                We believe that Jesus Christ is fully God and fully man. He was
+                conceived by the Holy Spirit, born of the Virgin Mary, lived a
+                sinless life, died on the cross as the sacrificial atonement for
+                our sins, was bodily resurrected, and ascended to the right hand
+                of the Father where He now acts as our High Priest and Advocate.
+              </p>
+            </div>
+
+            <div class="belief-point">
+              <h3>4. Humanity & Sin</h3>
+              <p>
+                We believe that humanity was created in the image of God but
+                fell into sin, resulting in spiritual death and eternal
+                separation from God. All people are sinners by nature and by
+                choice, incapable of redeeming themselves, and in desperate need
+                of God’s saving grace.
+              </p>
+            </div>
+
+            <div class="belief-point">
+              <h3>5. Salvation</h3>
+              <p>
+                We believe that salvation is by grace alone through faith alone
+                in Christ alone. It is a free gift of God, neither merited nor
+                secured in whole or in part by any virtue or work of man, but
+                received only through personal faith in the Lord Jesus Christ.
+              </p>
+            </div>
+
+            <div class="belief-point">
+              <h3>6. The Church</h3>
+              <p>
+                We believe that the Church is the body of Christ, a spiritual
+                organism made up of all born-again believers. Its purpose is to
+                worship God, grow in spiritual maturity, fellowship, and spread
+                the Gospel to all nations.
+              </p>
+            </div>
+          </div>
+          <div class="full-statement-link">
+            <p>
+              For a complete and detailed explanation of our theology, please
+              download our official doctrinal document:
+            </p>
+            <a
+              href="documents/full-doctrinal-statement.pdf"
+              class="cta-button primary-cta"
+              target="_blank"
+            >
+              <i class="fas fa-file-pdf"></i> Download Full Doctrinal Statement
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="summary-section">
+        <div class="container">
+          <h2>A Place Where Truth is Lived Out</h2>
+          <p>
+            Knowing what we believe is the first step. The next is seeing it in
+            action. We invite you to join us this Sunday.
+          </p>
+          <a href="plan-a-visit.html" class="cta-button primary-cta"
+            >Plan Your Visit</a
+          >
+        </div>
+      </section>
+    </main>
+    <footer class="main-footer">
+      <div class="container footer-grid">
+        <div class="footer-col logo-col">
+          <p class="logo">All Bride Assembly Church</p>
+          <p>&copy;2024. All Rights Reserved</p>
+          <div class="social-icons">
+            <a href="https://web.facebook.com/profile.php?id=61567275722047"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../visit/">Plan Your Visit</a></li>
+            <li><a href="../our-beliefs/">Our Beliefs</a></li>
+            <li><a href="../sermon/">Sermon Archives</a></li>
+            <li><a href="../connect/">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <p>All Bride Assembly Church Dawaki Abuja</p>
+          <p>Phone: (555) 123-4567</p>
+          <p>Email: info@gatheringplace.org</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

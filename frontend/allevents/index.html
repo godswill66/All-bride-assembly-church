@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events & Calendar | All Bride Assembly</title>
+    <link
+      rel="icon"
+      href="/assets/images/All_Bride_Assembly_Church-removebg-preview.png"
+      type="png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Merriweather:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* --- 1. CSS VARIABLES (Palette & Typography) --- */
+      :root {
+        --color-primary: #1e3a24; /* Deep Forest Green */
+        --color-secondary: #f59e0b; /* Warm Gold/Orange */
+        --color-text-dark: #333;
+        --color-text-light: #fff;
+        --color-background-light: #f9f9f9;
+        --color-background-dark: #1f2937;
+
+        --font-heading: "Montserrat", sans-serif;
+        --font-body: "Merriweather", serif;
+      }
+
+      /* --- 2. GLOBAL RESET & BASE STYLES --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-body);
+        color: var(--color-text-dark);
+        line-height: 1.6;
+        background-color: var(--color-text-light);
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-heading);
+        color: var(--color-primary);
+        margin-bottom: 0.5em;
+        font-weight: 700;
+      }
+
+      h1 {
+        font-size: 2.5em;
+      }
+      h2 {
+        font-size: 2em;
+      }
+      h3 {
+        font-size: 1.5em;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--color-primary);
+        transition: color 0.3s;
+      }
+
+      /* Helper Classes */
+      .bg-light {
+        background-color: var(--color-background-light);
+      }
+      .bg-dark {
+        background-color: var(--color-background-dark);
+      }
+      .text-center {
+        text-align: center;
+      }
+      .section-padding {
+        padding: 4em 0;
+      }
+      .flex-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 2em;
+      }
+      .text-white {
+        color: var(--color-text-light) !important;
+      }
+
+      /* --- 3. CTA BUTTON STYLES --- */
+      .cta-button {
+        display: inline-block;
+        padding: 0.75em 1.5em;
+        border-radius: 5px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .primary-cta {
+        background-color: var(--color-secondary);
+        color: var(--color-text-dark);
+        border: 2px solid var(--color-secondary);
+      }
+      .primary-cta:hover {
+        background-color: transparent;
+        color: var(--color-secondary);
+      }
+      .secondary-cta {
+        background-color: transparent;
+        color: var(--color-primary);
+        border: 2px solid var(--color-primary);
+      }
+      .secondary-cta:hover {
+        background-color: var(--color-primary);
+        color: var(--color-text-light);
+      }
+      .minimal-cta {
+        background: none;
+        border: none;
+        color: var(--color-secondary);
+        padding: 0;
+        font-style: italic;
+      }
+
+      /* --- 4. GLOBAL HEADER & NAVIGATION STYLES --- */
+      .main-header {
+        background-color: var(--color-primary);
+        padding: 1em 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        font-family: var(--font-heading);
+        font-size: 1.5em;
+        color: var(--color-text-light);
+        font-weight: 700;
+      }
+      .main-nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.5em;
+      }
+      .main-nav a {
+        color: var(--color-text-light);
+        font-weight: 400;
+      }
+      .nav-cta {
+        margin-left: 1.5em;
+      }
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--color-text-light);
+        font-size: 1.5em;
+        cursor: pointer;
+      }
+
+      /* --- 5. FOOTER STYLES --- */
+      .main-footer {
+        background-color: var(--color-background-dark);
+        color: var(--color-text-light);
+        padding: 3em 0;
+        font-size: 0.9em;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2em;
+      }
+      .footer-col h4 {
+        color: var(--color-secondary);
+        margin-bottom: 1em;
+      }
+      .footer-col a {
+        color: var(--color-text-light);
+        display: block;
+        margin-bottom: 0.5em;
+      }
+      .social-icons a {
+        display: inline-block;
+        font-size: 1.5em;
+        margin-right: 0.75em;
+        margin-top: 1em;
+      }
+
+      /* --- 6. EVENTS PAGE SPECIFIC STYLES --- */
+
+      /* Page Hero/Title Section */
+      .page-hero {
+        background-color: var(--color-primary);
+        color: var(--color-text-light);
+        padding: 6em 0 4em 0;
+      }
+      .page-hero h1 {
+        color: var(--color-text-light);
+        font-size: 3em;
+      }
+      .page-hero .subtitle {
+        font-size: 1.2em;
+        opacity: 0.8;
+      }
+
+      /* Featured Event Section */
+      .featured-event-card {
+        display: flex;
+        background-color: var(--color-background-light);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        margin-top: 2em;
+        align-items: center;
+      }
+      .event-image-container {
+        flex: 1.5;
+        min-width: 40%;
+        max-height: 400px;
+        overflow: hidden;
+      }
+      .event-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .event-content {
+        flex: 2;
+        padding: 2.5em;
+      }
+      .event-content h2 {
+        font-size: 2.2em;
+        margin-bottom: 0.25em;
+      }
+      .event-content .event-meta {
+        color: var(--color-secondary);
+        font-weight: 700;
+        font-family: var(--font-heading);
+        margin-bottom: 1em;
+      }
+      .event-content p:last-of-type {
+        margin-bottom: 2em;
+      }
+
+      /* Calendar Integration/External Links Section */
+      .calendar-links {
+        text-align: center;
+        padding: 2em 0;
+      }
+      .calendar-links .cta-button {
+        margin: 0 0.5em;
+      }
+
+      /* Upcoming Events List */
+      .event-list {
+        margin-top: 2em;
+        display: grid;
+        gap: 1.5em;
+        grid-template-columns: 1fr;
+      }
+      .event-item {
+        display: flex;
+        align-items: center;
+        background-color: var(--color-text-light);
+        padding: 1.5em;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        border-left: 5px solid var(--color-secondary);
+      }
+      .event-date-box {
+        background-color: var(--color-primary);
+        color: var(--color-text-light);
+        padding: 0.75em 1em;
+        border-radius: 5px;
+        text-align: center;
+        font-family: var(--font-heading);
+        font-weight: 700;
+        line-height: 1.2;
+        margin-right: 1.5em;
+        width: 80px;
+        flex-shrink: 0;
+      }
+      .event-date-box .month {
+        display: block;
+        font-size: 0.8em;
+        text-transform: uppercase;
+      }
+      .event-date-box .day {
+        display: block;
+        font-size: 2em;
+      }
+      .event-details {
+        flex-grow: 1;
+      }
+      .event-details h3 {
+        margin-top: 0;
+        font-size: 1.3em;
+        margin-bottom: 0.25em;
+      }
+      .event-details p {
+        font-size: 0.95em;
+        color: #666;
+        margin-bottom: 0;
+      }
+
+      /* --- 7. Responsive Adjustments --- */
+      @media (max-width: 900px) {
+        .main-nav,
+        .nav-cta {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
+
+        .featured-event-card {
+          flex-direction: column;
+        }
+        .event-image-container {
+          width: 100%;
+          min-height: 250px;
+        }
+        .event-content {
+          padding: 1.5em;
+        }
+        .event-content h2 {
+          font-size: 1.8em;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .event-item {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .event-date-box {
+          margin: 0 0 1em 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="container header-content">
+        <a href="index.html" class="logo">All Bride Assembly Church</a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="../about/">About Us</a></li>
+            <li><a href="../sermon/">Sermons</a></li>
+            <li><a href="../allevents/">Events</a></li>
+            <li><a href="../connect/">Connect</a></li>
+          </ul>
+        </nav>
+        <a href="../give/" class="cta-button nav-cta primary-cta">Give</a>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero section-padding text-center">
+        <div class="container">
+          <h1>Community Events & Calendar</h1>
+          <p class="subtitle">
+            Find ways to connect, grow, and serve with us throughout the week.
+          </p>
+        </div>
+      </section>
+
+      <section class="featured-event section-padding-small">
+        <div class="container">
+          <div class="featured-event-card">
+            <div class="event-image-container">
+              <img
+                src="images/featured-event-placeholder.jpg"
+                alt="Family Movie Night Event"
+              />
+            </div>
+            <div class="event-content">
+              <p class="event-meta">Saturday, November 4th | 6:00 PM</p>
+              <h2>Annual Fall Family Movie Night</h2>
+              <p>
+                Bring the whole family for a free night of fun, popcorn, and
+                fellowship! We'll be showing **'The Chronicles of Narnia'** on
+                our outdoor screen. Don't forget your blankets and chairs.
+              </p>
+              <p>Location: Church Lawn (Gym if raining)</p>
+              <a
+                href="../our-ministry/"
+                class="cta-button primary-cta"
+                >Register to Attend</a
+              >
+              <a href="../our-ministry/" class="cta-button secondary-cta"
+                >Get Directions</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="upcoming-events bg-light section-padding">
+        <div class="container">
+          <h2 class="text-center">What's Happening This Month</h2>
+
+          <div class="event-list">
+            <div class="event-item">
+              <div class="event-date-box">
+                <span class="month">Oct</span>
+                <span class="day">12</span>
+              </div>
+              <div class="event-details">
+                <h3>Men's Breakfast & Study</h3>
+                <p>
+                  7:00 AM | Fellowship Hall | Weekly Bible study focused on
+                  leadership and discipleship.
+                </p>
+              </div>
+              <a href="#" class="cta-button minimal-cta"
+                >Details <i class="fas fa-chevron-right"></i
+              ></a>
+            </div>
+
+            <div class="event-item">
+              <div class="event-date-box">
+                <span class="month">Oct</span>
+                <span class="day">19</span>
+              </div>
+              <div class="event-details">
+                <h3>Youth Group Kickball Night</h3>
+                <p>
+                  6:30 PM | City Park | All students grades 6-12 welcome for
+                  games and pizza!
+                </p>
+              </div>
+              <a href="#" class="cta-button minimal-cta"
+                >Details <i class="fas fa-chevron-right"></i
+              ></a>
+            </div>
+
+            <div class="event-item">
+              <div class="event-date-box">
+                <span class="month">Oct</span>
+                <span class="day">26</span>
+              </div>
+              <div class="event-details">
+                <h3>Newcomers' Lunch</h3>
+                <p>
+                  12:30 PM | Sanctuary Annex | Meet the pastors and learn about
+                  joining a small group.
+                </p>
+              </div>
+              <a href="#" class="cta-button minimal-cta"
+                >Details <i class="fas fa-chevron-right"></i
+              ></a>
+            </div>
+
+            <div class="event-item">
+              <div class="event-date-box">
+                <span class="month">Nov</span>
+                <span class="day">10</span>
+              </div>
+              <div class="event-details">
+                <h3>Women's Ministry Retreat Sign-ups</h3>
+                <p>
+                  Deadline to register for the annual weekend retreat is today!
+                  See Jane Smith for forms.
+                </p>
+              </div>
+              <a href="#" class="cta-button minimal-cta"
+                >Register Now <i class="fas fa-chevron-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="calendar-links">
+            <a href="#" class="cta-button secondary-cta">
+              <i class="fas fa-calendar-alt"></i> View Full Google Calendar
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="container footer-grid">
+        <div class="footer-col logo-col">
+          <p class="logo">All Bride Assembly Church</p>
+          <p>&copy; 2024. All Rights Reserved.</p>
+          <div class="social-icons">
+            <a href="https://web.facebook.com/profile.php?id=61567275722047"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../visit/">Plan Your Visit</a></li>
+            <li><a href="../our-beliefs/">Our Beliefs</a></li>
+            <li><a href="../sermon/">Sermon Archives</a></li>
+            <li><a href="../connect/">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <p>LEA Primary school Dawaki Abuja Nigeria</p>
+          <p>Phone: (555) 123-4567</p>
+          <p>Email: info@gatheringplace.org</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
